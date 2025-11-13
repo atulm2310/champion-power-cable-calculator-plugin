@@ -506,8 +506,30 @@ class champion_power_cable
                     continue;
                 }
                 $IPSMIN[$index]["description"] = $_POST["pipetype"] . $_POST["raceway"] . "TRA" . $v[1];
-                // remove dash and change 1/2 to .5 on $v[0]
-                $IPSMIN[$index]["code"] = str_replace("-", "", str_replace("1/2", ".5", $v[0]));
+
+                // Convert fraction format to decimal (e.g., "3/4" -> 0.75, "1-1/2" -> 1.5)
+                $sizeStr = $v[0];
+                if (strpos($sizeStr, '-') !== false) {
+                    // Handle formats like "1-1/2", "2-1/4"
+                    $parts = explode('-', $sizeStr);
+                    $whole = (float)$parts[0];
+                    $fraction = $parts[1];
+                    if (strpos($fraction, '/') !== false) {
+                        $fracParts = explode('/', $fraction);
+                        $decimal = $whole + ((float)$fracParts[0] / (float)$fracParts[1]);
+                    } else {
+                        $decimal = $whole;
+                    }
+                } elseif (strpos($sizeStr, '/') !== false) {
+                    // Handle simple fractions like "3/4", "1/2"
+                    $fracParts = explode('/', $sizeStr);
+                    $decimal = (float)$fracParts[0] / (float)$fracParts[1];
+                } else {
+                    // Simple number like "1", "2"
+                    $decimal = (float)$sizeStr;
+                }
+                $IPSMIN[$index]["code"] = number_format($decimal, 2);
+                $IPSMIN[$index]["original"] = $v[0];
 
                 $diameters = $this->db_get_results("Select * from wp_pull_conduit_diameters where Diameter_ID = '" . $IPSMIN[$index]["description"] . "'", ARRAY_A)[0];
                 if (!empty($diameters)) {
@@ -519,7 +541,7 @@ class champion_power_cable
                     // (PI()*(($BJ7/2)^2))*BL$5)
                     $IPSMIN[$index]["2"] = (M_PI * (pow((float) $IPSMIN[$index]["ID"] / 2, 2))) * 0.31;
 
-                    // (PI()*(($BJ7/2)^2))*BL$5) 
+                    // (PI()*(($BJ7/2)^2))*BL$5)
                     $IPSMIN[$index][">2"] = (M_PI * (pow((float) $IPSMIN[$index]["ID"] / 2, 2))) * 0.40;
                 }
                 $index++;

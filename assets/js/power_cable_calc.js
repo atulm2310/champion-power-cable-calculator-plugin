@@ -996,7 +996,7 @@ jQuery(document).ready(function ($) {
                         pullCalculator.minimumTrade = response.index;
                         $("#minimumTrade").show();
                         $("#minimumTrade").html(
-                            "NEC Minimum Trade Size - " + response.index + '" ' + pullCalculator.type
+                            "NEC Minimum Trade Size - " + response.index + "'' " + pullCalculator.type
                         );
 
                         setTimeout(() => {
