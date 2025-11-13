@@ -1694,17 +1694,18 @@ jQuery(document).ready(function ($) {
                 ).toFixed(2);
 
                 // Calculate SS_PT (Static Sag Tension)
+                // Fixed: Use consistent ECoF throughout all calculations
                 if (pullCalculator.debug) {
                     console.log("🚀 ~ v:", v);
                 }
 
                 if (v == "U") {
                     SS_PT = incomingTension + _length * pullCalculator.totalWeight * (
-                        Math.sin((_slope_deg * Math.PI) / 180) + pull_BCoF * Math.cos((_slope_deg * Math.PI) / 180)
+                        Math.sin((_slope_deg * Math.PI) / 180) + pullCalculator.ECoF * Math.cos((_slope_deg * Math.PI) / 180)
                     );
                     if (pullCalculator.raceway > 2) {
                         SS_PT_v600 = incomingTension_v600 + _length * pullCalculator.totalWeight * (
-                            Math.sin((_slope_deg * Math.PI) / 180) + pull_BCoF_v600 * Math.cos((_slope_deg * Math.PI) / 180)
+                            Math.sin((_slope_deg * Math.PI) / 180) + pullCalculator.ECoF_v600 * Math.cos((_slope_deg * Math.PI) / 180)
                         );
                     }
                     SS_PT_Alt = incomingTensionALT + _length * pullCalculator.totalWeight * (
@@ -1719,10 +1720,10 @@ jQuery(document).ready(function ($) {
                     if (SS_PT < 0){
                         SS_PT = 1;
                     }
-                    
+
                     if (pullCalculator.raceway > 2) {
                         SS_PT_v600 = incomingTension_v600 - _length * pullCalculator.totalWeight * (
-                            Math.sin((_slope_deg * Math.PI) / 180) - pull_BCoF_v600 * Math.cos((_slope_deg * Math.PI) / 180)
+                            Math.sin((_slope_deg * Math.PI) / 180) - pullCalculator.ECoF_v600 * Math.cos((_slope_deg * Math.PI) / 180)
                         );
                     }
 
@@ -1751,20 +1752,20 @@ jQuery(document).ready(function ($) {
                     ".segments-item .seg_" + _i + " [name='segment-build-list-elbow-angle']"
                 ).val()) || 0;
 
-                // Debug all variables before calculation
-                var expValue = pull_BCoF * ((elbow_angle * Math.PI) / 180);
+                // Fixed: Use consistent ECoF and keep values as numbers
+                var expValue = pullCalculator.ECoF * ((elbow_angle * Math.PI) / 180);
                 var powValue = Math.pow(2.718, expValue);
                 var result = SS_PT * powValue;
                 if (isNaN(result)) {
                     outgoingTensionNoFixed = outgoingTension = 0;
                 } else {
-                    outgoingTensionNoFixed = outgoingTension = result.toFixed(2);
+                    // Keep as number, don't convert to string
+                    outgoingTensionNoFixed = outgoingTension = result;
                 }
 
                 if (pullCalculator.raceway > 2) {
-                    outgoingTensionNoFixed_v600 = outgoingTension_v600 = (
-                        SS_PT_v600 * Math.pow(2.718, (pull_BCoF_v600 * (elbow_angle * Math.PI)) / 180)
-                    ).toFixed(2);
+                    outgoingTensionNoFixed_v600 = outgoingTension_v600 =
+                        SS_PT_v600 * Math.pow(2.718, (pullCalculator.ECoF_v600 * (elbow_angle * Math.PI)) / 180);
                 }
 
                 outgoingTensionALT = SS_PT_Alt * Math.pow(
@@ -1779,25 +1780,32 @@ jQuery(document).ready(function ($) {
                     pullCalculator.sumTensionALT = outgoingTensionALT;
                 }
 
-                // Calculate SWBP
+                // Calculate SWBP - Fixed: Keep radius as number and protect against division by zero
                 var elbow_radius = parseFloat($(
                     ".segments-item .seg_" + _i + " [name='segment-build-list-elbow-radius']"
                 ).val()) || 0;
-                var Ri_ft = (elbow_radius / 12).toFixed(3);
                 var SWBP = 0;
-                if (pullCalculator.pullConfiguration == "Single") {
-                    SWBP = outgoingTension / Ri_ft;
-                } else if (pullCalculator.pullConfiguration == "Triangular") {
-                    SWBP = (pullCalculator.weightCorrection * outgoingTension) / (2 * Ri_ft);
-                } else if (pullCalculator.pullConfiguration == "Cradled") {
-                    SWBP = (3 * pullCalculator.weightCorrection - 2) * (
-                        outgoingTension / (3 * Ri_ft)
-                    );
-                } else {
-                    SWBP = (pullCalculator.weightCorrection * outgoingTension) / (2 * Ri_ft);
+
+                // Only calculate SWBP if radius > 0 to avoid division by zero
+                if (elbow_radius > 0) {
+                    var Ri_ft = elbow_radius / 12; // Keep as number
+
+                    if (pullCalculator.pullConfiguration == "Single") {
+                        SWBP = outgoingTension / Ri_ft;
+                    } else if (pullCalculator.pullConfiguration == "Triangular") {
+                        SWBP = (pullCalculator.weightCorrection * outgoingTension) / (2 * Ri_ft);
+                    } else if (pullCalculator.pullConfiguration == "Cradled") {
+                        SWBP = ((3 * pullCalculator.weightCorrection - 2) * outgoingTension) / (3 * Ri_ft);
+                    } else if (pullCalculator.pullConfiguration == "Complex") {
+                        // Explicit handling for Complex configuration
+                        SWBP = (pullCalculator.weightCorrection * outgoingTension) / (2 * Ri_ft);
+                    } else {
+                        // Fallback for any other configuration
+                        SWBP = (pullCalculator.weightCorrection * outgoingTension) / (2 * Ri_ft);
+                    }
                 }
 
-                if (SWBP < 0) 
+                if (SWBP < 0)
                     SWBP = 0;
                 
                 // If user override tension, use that value
