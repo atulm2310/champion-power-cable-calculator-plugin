@@ -1,0 +1,122 @@
+<div class="item-original segments-item">
+    <h2  id="heading{seg_number}">
+        <label class="subtitle">Seg {seg_number}</label>
+        <label class="remove">X</label>
+    </h2>
+    <table class="col-md-12 no-padding">
+        <tr class="topTitle">
+            <th colspan="4">Straight Section</th>
+            <th colspan="4">Bend Section</th>
+            <th colspan="2">Continuous</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th>Segment Note</th>
+            <th>Slope (Deg)</th>
+            <th>Slope Direction</th>
+            <th>Length (ft)</th>
+            <th>Type</th>
+            <th>Direction</th>
+            <th>Elbow Angle (Deg)</th>
+            <th>Elbow Radius (in)</th>
+            <th>Tension (lbs)</th>
+            <th>SWBP (lbs/ft)</th>
+            <th>Begin New Pull in this Segment</th>
+        </tr>
+        <tr>
+            <td>
+                <!-- Segment Note -->
+                <input type="hidden" class="noRequired" name="segment-build-list-segment" value="{seg_number}">
+                 <input type="text" class="form-control noRequired" name="segment-build-list-note"
+                    aria-label="segment-build-list-note" >
+            </td>
+            <td>
+                <!-- Slope (Deg) -->
+                <input type="number" class="form-control noRequired" name="segment-build-list-slope"
+                    aria-label="segment-build-list-slope" >
+            </td>
+            <td>
+                <!-- Slope Direction -->
+                <select class="form-control required" name="segment-build-list-slope-direction"
+                    aria-label="segment-build-list-slope-direction">
+                    <option value="">Select an option</option>
+                    <option value="Horizontal">Horizontal</option>
+                    <option value="Up">Up</option>
+                    <option value="Down">Down</option>
+                </select>
+            </td>
+            <td>
+                <!-- Length (ft) -->
+                <input type="number" class="form-control required" name="segment-build-list-length"
+                    aria-label="segment-build-list-length" >
+            </td>
+            <td>
+                <!--Type -->
+                <select class="form-control noRequired" name="segment-build-list-type"
+                    aria-label="segment-build-list-type">
+                    <option value="">Select an option</option>
+                    <option value="Horizontal">Horizontal</option>
+                    <option value="Up">Up</option>
+                    <option value="Down">Down</option>
+                    <option value="Vert. Up">Vert. Up</option>
+                    <option value="Vert. Dn">Vert. Dn</option>
+                    <option value="Call CFI">Call CFI</option>
+                </select>
+            </td>
+            <td>
+                <!-- Direction -->
+                <input type="text" class="form-control noRequired" name="segment-build-list-direction"
+                    aria-label="segment-build-list-direction" >
+            </td>
+            <td>
+                <!-- Elbow Angle (Deg) -->
+                <select class="form-control required" name="segment-build-list-elbow-angle"
+                    aria-label="segment-build-list-elbow-angle">
+                    <option value="">Select an option</option>
+                    <option value="0">0</option>
+                    <option value="90">90</option>
+                    <option value="60">60</option>
+                    <option value="45">45</option>
+                    <option value="30">30</option>
+                    <option value="22.5">22.5</option>
+                    <option value="11.25">11.25</option>
+                </select>
+            </td>
+            <td>
+                <!-- Elbow Radius (in) -->
+                <select class="form-control required" name="segment-build-list-elbow-radius"
+                    aria-label="segment-build-list-elbow-radius">
+                    <option value="">Select an option</option>
+                    <option value="0">0</option>
+                    <option value="12">12</option>
+                    <option value="24">24</option>
+                    <option value="36">36</option>
+                    <option value="48">48</option>
+                    <option value="60">60</option>
+                    <option value="72">72</option>
+                    <option value="84">84</option>
+                    <option value="96">96</option>
+                    <option value="108">108</option>
+                </select>
+            </td>
+            <td>
+                <!-- Tension (lbs) -->
+                <input type="number" class="form-control noRequired" name="segment-build-list-tension"
+                    aria-label="segment-build-list-tension" >
+            </td>
+            <td>
+                <!-- SWBP (lbs/ft) -->
+                <input type="number" class="form-control noRequired" name="segment-build-list-SWBP"
+                    aria-label="segment-build-list-SWBP" value="0" >
+            </td>
+            <td>
+                <!-- Begin New Pull in this Segment -->
+                <select class="form-control " name="segment-build-list-begin-segment"
+                    aria-label="segment-build-list-begin-segment">
+                    <option value="No">No</option>
+                    <option value="Yes">Yes</option>
+                </select>
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,768 @@
+:root {
+  --pull-calculator-regular: #e1261c;
+  --pull-calculator-v600: #333;
+  --pull-calculator-regular-background: #eaf3fa;
+  --pull-calculator-v600-background: rgb(245, 227, 214);
+  /*  */
+  --pull-calculator-buttons-color: #333;
+  --pull-calculator-v600-buttons-color: #e1261c;
+  /*  */
+  --pull-calculator-text-color: #ffffff;
+  --pull-calculator-v600-text-color: #ffffff;
+  /* Validations */
+  --red-background: #e1261c;
+  --red-background-text: #000000;
+  --red-text: #e1261c;
+  --purple-background: rgb(181, 102, 251);
+  --pink-background: rgb(220, 55, 149);
+  --green-background: rgb(180, 207, 145);
+}
+
+.noDisplay {
+  visibility: collapse;
+  height: 0 !important;
+}
+
+/* Validations Begin*/
+
+.redBackground,
+.redBackground * {
+  background-color: var(--red-background) !important;
+  color: var(--red-background-text) !important;
+}
+
+td.redText,
+.redText {
+  color: var(--red-text) !important;
+  background-color: white !important;
+}
+
+.purpleBackground,
+.purpleBackground * {
+  background-color: var(--purple-background) !important;
+  color: var(--red-background-text) !important;
+}
+
+.pinkBackground,
+.pinkBackground * {
+  background-color: var(--pink-background) !important;
+  color: var(--red-background-text) !important;
+}
+
+.greenBackground,
+.greenBackground * {
+  background-color: var(--green-background) !important;
+  color: var(--red-background-text) !important;
+}
+
+/* Validations END*/
+
+.form-control {
+  padding: 0px 5px;
+  /* height: 25px; */
+}
+
+.calculatorFullWidth {
+  max-width: 100%;
+  width: 100%;
+}
+
+#powerCalculatorContainer .globalActions {
+  width: 100%;
+  float: left;
+}
+
+#copyTheLink,
+#powerCalculatorContainer .actionButton {
+  background-color: transparent;
+  color: #2e6da4;
+  height: 30px;
+  padding: 5px 30px;
+  border: 1px solid #2e6da4;
+  border-radius: 4px;
+}
+
+#powerCalculatorContainer .actionButton:before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  float: left;
+  left: 8px;
+  position: absolute;
+}
+
+#powerCalculatorContainer select:not(.userFill) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+#powerCalculatorContainer #changeSegmentsDirectionContainer {
+    float: left;
+    margin-top: 19px;
+    margin-left: 10px;
+}
+
+#powerCalculatorContainer #changeSegmentsDirectionLabel {
+      background-color: var(--pull-calculator-regular-background) !important;
+    padding: 5px 10px;
+    border-radius: 3px;
+}
+
+#powerCalculatorContainer #changeSegmentsDirection::before {
+  content: "\f2f1";
+  position: static;
+}
+
+#powerCalculatorContainer #toSave {
+  content: "\f0c7";
+  left: 0;
+  position: relative;
+  margin-right: 5px;
+}
+
+#powerCalculatorContainer #toSave::before {
+  content: "\f0c7";
+}
+
+#powerCalculatorContainer #toCalculate {
+  content: "\f1ec";
+  left: 0;
+  position: relative;
+  margin-right: 5px;
+}
+
+#powerCalculatorContainer #toCalculate::before {
+  content: "\f1ec";
+}
+
+#copyTheLink {
+  background-color: #ffffff;
+  color: #000000;
+  padding: 5px 5px 5px 10px !important;
+}
+
+#copyTheLink::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0c5";
+  float: left;
+  margin-right: 5px;
+}
+
+#powerCalculatorContainer #toClearAll {
+  padding: 5px 5px 5px 15px !important;
+}
+
+#powerCalculatorContainer #toClearAll::before {
+  left: -7px;
+  position: relative;
+}
+
+#powerCalculatorContainer #toPDF::before {
+  content: "\f1c1";
+  left: 25px;
+}
+
+#powerCalculatorContainer #clearOverrides,
+#powerCalculatorContainer #clearCables,
+#powerCalculatorContainer #clearList {
+  position: relative;
+  bottom: -18px;
+  float: right;
+}
+
+#powerCalculatorContainer #clearOverrides::before,
+#powerCalculatorContainer #clearCables::before,
+#powerCalculatorContainer #toClearAll::before,
+#powerCalculatorContainer #clearList::before {
+  content: "\f056";
+}
+
+#powerCalculatorContainer .externalLink {
+  width: max-content !important;
+}
+
+#powerCalculatorContainer .externalLink::before {
+  content: "\f0c1";
+  position: relative;
+  left: -10px;
+}
+
+#powerCalculatorContainer #testButtonsContainer {
+  float: left;
+  margin-top: 50px;
+}
+
+.no-padding {
+  padding: 0px !important;
+}
+
+#powerCalculatorContainer {
+  display: flex;
+  width: 100%;
+  flex-flow: wrap;
+  justify-content: space-between;
+  min-width: 1500px;
+}
+
+#powerCalculatorContainer select {
+  min-width: fit-content;
+}
+
+#powerCalculatorContainer input,
+#powerCalculatorContainer textarea,
+#powerCalculatorContainer select {
+  color: #000000;
+  padding: 0px;
+  font-weight: 400;
+}
+
+#powerCalculatorContainer label{
+  margin-bottom: 0px !important;
+}
+
+#powerCalculatorContainer .form-group {
+  margin-bottom: 5px;
+}
+
+.projectInformation .title {
+  width: max-content;
+  margin-top: 15px;
+  text-transform: none;
+  padding: 7px;
+  font-size: 20px;
+  float: left;
+  border: 1px solid;
+  border-bottom-color: currentcolor;
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom: 0;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  margin-bottom: 0px !important;
+  font-weight: 600;
+}
+
+.projectInformation .information {
+  padding: 10px;
+  width: 100%;
+  float: left;
+  border: 1px solid #000000;
+  /*  background-color: var(--pull-calculator-regular-background); */
+}
+
+#segmentBuildList td {
+  text-align: center;
+  vertical-align: middle;
+}
+
+#segmentBuildList label+input {
+  display: none;
+}
+
+#segmentBuildList td label {
+  float: left;
+  width: 100%;
+  height: 20px;
+  padding: 3px;
+  background-color: #eeeeee;
+  -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0/8%);
+  box-shadow: inset 0 1px 1px rgb(0 0 0/8%);
+  -webkit-transition: border-color ease-in-out 0.15s,
+    -webkit-box-shadow ease-in-out 0.15s;
+}
+
+.printOnly #segmentBuildList td label {
+  height: 25px;
+}
+
+.projectInformation .userFill {
+  background-color: var(--pull-calculator-regular-background);
+}
+
+#powerCalculatorContainer.v600 .projectInformation .userFill {
+  background-color: var(--pull-calculator-v600-background);
+}
+
+.projectInformation .subtitle {
+  font-weight: bold !important;
+  font-size: 12px;
+  margin-bottom: 20px;
+  border-bottom: 2px solid;
+  width: 100%;
+  padding-bottom: 6px;
+}
+
+.segments-item {
+  float: left;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+
+.segments-item:first-child .remove,
+.segments-item:not(:last-child) .remove {
+  display: none;
+}
+
+.segments-item .remove {
+  position: absolute;
+  right: 38px;
+  color: red;
+  cursor: pointer;
+}
+
+.segments-item table th,
+.projectInformation table th {
+  vertical-align: middle;
+}
+
+.segments-item .topTitle {
+  font-weight: bold !important;
+  font-size: 20px;
+}
+
+/* Seg */
+
+.segments-item .segmentSections th:nth-child(1) {
+  width: 3%;
+}
+
+/* Notes, Slope Direction, New Pull */
+
+.segments-item .segmentSections th:nth-child(2),
+.segments-item .segmentSections th:nth-child(4),
+.segments-item .segmentSections th:last-child {
+  width: 8%;
+}
+
+/* Slope Deg,Type, Direction */
+
+.segments-item .segmentSections th:nth-child(3),
+
+/* Type */
+
+.segments-item .segmentSections th:nth-child(7),
+.segments-item .segmentSections th:nth-child(6) {
+  width: 7%;
+}
+
+/* Length */
+
+.segments-item .segmentSections th:nth-child(5) {
+  width: 6%;
+}
+
+/* .projectInformation table th, */
+
+.projectInformation #notes {
+  height: 117px;
+}
+
+.projectInformation table input,
+.projectInformation table select {
+  float: left;
+  border: none;
+}
+
+#pullProfileSummary table tbody {
+  display: flex;
+  flex-flow: wrap;
+}
+
+#pullProfileSummary table tr {
+  width: 50%;
+  display: flex;
+}
+
+#pullProfileSummary th,
+#pullProfileSummary td {
+  width: 50%;
+  flex-grow: 1;
+}
+
+#cablesForm,
+#projectInputs .information,
+#cablesForm {
+  min-height: 260px;
+}
+
+#projectInformation .information label,
+#projectInputs .information label {
+  width: 133px;
+}
+
+.information>table {
+  min-height: 275px !important;
+}
+
+table tr,
+.projectInformation label {
+  font-weight: 700 !important;
+  font-size: 13px;
+  /* padding-right: 5px; */
+  min-width: 55px;
+}
+
+label.fullSize {
+  width: 100% !important;
+}
+
+#cableInformation.projectInformation .table label {
+  width: 10%;
+}
+
+.table.ground .regular select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  min-width: 57px;
+}
+
+/* .table.ground .regular input[type="number"] {
+  -webkit-appearance: textfield;
+  -moz-appearance: textfield;
+  appearance: textfield;
+} */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
+}
+
+textarea {
+  min-height: 100px;
+}
+
+.form-group.singleLine {
+  display: flex;
+  align-items: center;
+  margin-bottom: 3px;
+}
+
+.form-group textarea,
+.form-group select,
+.form-group input {
+  border: 1px solid #ccc;
+  height: 20px;
+  color: #666;
+}
+
+.accordion-item:first-of-type {
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.accordion-item {
+  background-color: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.accordion-header {
+  margin-bottom: 0;
+}
+
+.accordion-item:first-of-type .accordion-button {
+  border-top-left-radius: calc(0.25rem - 1px);
+  border-top-right-radius: calc(0.25rem - 1px);
+}
+
+.accordion-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 7px 1.25rem !important;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  background-color: #fff;
+  border: 0;
+  border-radius: 0;
+  overflow-anchor: none;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out,
+    border-radius 0.15s ease;
+}
+
+.accordion-button::after {
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  margin-left: auto;
+  content: "";
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23212529'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-size: 1.25rem;
+  transition: transform 0.2s ease-in-out;
+}
+
+.accordion-button:not(.collapsed) {
+  color: #0c63e4;
+  background-color: #e7f1ff;
+  box-shadow: inset 0 -1px 0 rgb(0 0 0 / 13%);
+}
+
+.accordion-collapse.collapse.show {
+  display: block;
+}
+
+.show {
+  display: block !important;
+}
+
+.collapse {
+  display: none;
+}
+
+.accordion-body {
+  padding: 1rem 1.25rem;
+}
+
+.accordion-item:last-of-type .accordion-button.collapsed {
+  border-bottom-right-radius: calc(0.25rem - 1px);
+  border-bottom-left-radius: calc(0.25rem - 1px);
+}
+
+.accordion-item:last-of-type {
+  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: 0.25rem;
+}
+
+[type="number"].disabled,
+[type="text"].disabled,
+select.disabled {
+  background-color: #eeeeee;
+  pointer-events: none;
+}
+
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled),
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+#powerCalculatorContainer ul li::before {
+  display: none !important;
+}
+
+#powerCalculatorContainer ul {
+  padding-left: 30px;
+  margin: 0 !important;
+  line-height: 25px;
+}
+
+.loadingOverlay {
+  width: 100%;
+  height: 100%;
+  float: left;
+  position: absolute;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  display: none;
+  justify-content: center;
+}
+
+#overrides .subtitle {
+  font-size: 25px;
+  text-align: center;
+  padding-top: 5px;
+}
+
+.loadingOverlay .loaderIcon::before {
+  content: "\f110";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  float: left;
+  font-size: 40px;
+  color: var(--pull-calculator-regular);
+  -webkit-animation: spin 1s linear infinite;
+  -moz-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+}
+
+.pull-right {
+  text-align: right;
+}
+
+#addSegment {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#cableImage {
+  width: 100px;
+  display: inline;
+}
+
+table tr span {
+  border-bottom: 1px solid #000000;
+}
+
+#comparisonTypes .form-group,
+#comparisonTypes .information,
+#pullProfileSummary .form-group,
+#pullProfileSummary .information {
+  background-color: transparent !important;
+  margin-bottom: 0px;
+}
+
+#pullProfileSummary th,
+#comparisonTypes th,
+#comparisonTypes td,
+#pullProfileSummary td,
+#pullProfileSummary .profile_content,
+#pullProfileSummary .profile_title {
+  min-height: 30px;
+  margin-bottom: 0px;
+  border: 1px solid white;
+  padding: 8px !important;
+}
+
+#pullProfileSummary th,
+#comparisonTypes th,
+#pullProfileSummary td,
+#comparisonTypes td {
+  padding: 6px !important;
+}
+
+#comparison-install-hours {
+  width: 10%;
+}
+
+#comparisonTypes td.noColor {
+  background-color: transparent !important;
+}
+
+#pullProfileSummary #pull-profile-cable {
+  height: auto;
+}
+
+#pullProfileSummary th {
+  width: 50%;
+}
+
+/* .v600 .regular input,
+.v600 .regular select,
+.regular .v600 input,
+.regular .v600 select {
+  background-color: #eeeeee;
+}
+ */
+.regular .v600,
+.v600 .regular,
+.v600 .regular input,
+.v600 .regular select {
+  display: none;
+}
+
+#pullProfileSummary th {
+  width: 50%;
+}
+
+#cablesForm tr td {
+  min-width: 46px;
+}
+
+#calculate {
+  background-color: var(--pull-calculator-regular);
+  margin-top: 20px;
+}
+
+#calculate.disabled {
+  background-color: gray;
+}
+
+.error {
+  border: 1px solid var(--pull-calculator-regular) !important;
+}
+
+#minimumTrade {
+  text-align: center;
+  width: 100%;
+  display: none;
+  min-height: 18px;
+  line-height: 18px;
+}
+
+.labelPrint {
+  width: 100% !important;
+  height: auto;
+  min-height: 25px;
+  text-align: left;
+  vertical-align: middle;
+  padding: 5px;
+}
+
+#segmentBuildListSection .labelPrint {
+  min-width: 85px;
+  -webkit-box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+  box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+  -webkit-transition: border-color ease-in-out 0.15s,
+    -webkit-box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+
+#logoPrint {
+  float: left;
+  height: 150px;
+}
+
+/* New select2  Begin */
+#powerCalculatorContainer .select2-container{
+  width: 100% !important;
+  border-top: 1px solid rgb(222, 222, 222) !important;
+}
+
+#powerCalculatorContainer .select2-selection {
+  border: none !important;
+}
+
+#powerCalculatorContainer .select2-container .select2-selection--single{
+  height: 19px !important;
+  background-color: var(--pull-calculator-regular-background) !important; 
+  border-radius: 0px !important;
+}
+
+#powerCalculatorContainer  .select2-selection__rendered{
+  line-height: 23px !important;
+  border: none !important;
+}
+
+#powerCalculatorContainer  .select2-selection__arrow{
+  height: 15px !important;
+  border: unset !important;
+}
+
+.select2-search__field,
+.select2-results__options[id*="select2-segment-build-list-elbow-radius_"] .select2-results__option ,
+.select2-results__options[id*="select2-segment-build-list-elbow-angle_"] .select2-results__option {
+  color: #000000 !important;
+}
+/* New select2  End */
+
+@-moz-keyframes spin {
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}

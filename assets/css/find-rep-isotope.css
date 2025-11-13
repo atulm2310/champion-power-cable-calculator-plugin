@@ -1,0 +1,662 @@
+.uagb-tabs__panel{
+    display: none !important;
+}
+
+.experience-container{
+    align-items: center;
+    justify-content: center;
+    display: none;
+}
+
+.experience-container.active{
+    display: flex !important;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.experience-container h2{
+    font-size: 18px !important;
+    text-align: center;
+}
+
+.experience-container .experience-option{
+    display: flex !important;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.experience-container .experience-option img {
+    width: 100%;
+    object-fit: contain;
+    max-height: 200px;
+}
+
+.uagb-tabs__panel.active{
+    display: flex !important;
+}
+
+.listversion .uagb-tabs__body-wrap{
+    flex-direction: column-reverse !important;
+    display: flex;
+    align-items: center;
+}
+
+.uagb-tabs__wrap.uagb-tabs__vstyle6-tablet{
+    flex-direction: column !important;
+}
+
+/* Map Filters Start */
+.hide,
+.hotspots-placeholder,
+.page-id-7923 .hotspots-placeholder,
+.uagb-tabs__body-wrap .controls+.select2 {
+    display: none !important;
+}
+
+.mapversion #locationsDropdown{
+    margin-top: -20px;
+}
+
+.wp-block-uagb-tabs .uagb-tabs__panel {
+    width: 49% !important;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
+}
+
+.wp-block-uagb-tabs .uagb-tabs__panel {
+    max-width: 560px !important;
+}
+
+.wp-block-uagb-tabs.initialized {
+    flex-direction: row !important;
+    gap: 20px;
+    display: flex !important;
+    flex-wrap: wrap;
+}
+
+
+
+.infoContainer svg {
+    width: auto;
+    height: 20px;
+}
+
+.infoContainer svg path {
+    opacity: 1 !important;
+}
+
+mask g path, svg g.action path.active {
+    cursor: pointer;
+    opacity: 0.8 !important;
+    stroke-width: 0.1px;
+}
+
+p.repPhone, p.repEmail, p.repWebsite {
+    display: flex !important;
+    gap: 15px;
+    margin-bottom: 5px !important;
+}
+
+.find-rep-isotope-item .contentWrapper {
+    padding: 10px;
+    height: 100% !important;
+    min-height: auto !important;
+}
+
+
+
+/* Map Filters End */
+
+/* Teritory Filters Start */
+
+.wp-block-uagb-tabs .uagb-tabs__panel {
+    width: 49% !important;
+    float: left;
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: center;
+}
+#labeldropdownContainer {
+    width: 100%;
+    float: left;
+    margin-bottom: 20px;
+}
+.dropdownContainer {
+    color: #000000;
+    border-radius: 5px;
+    border: 1px solid;
+    display: flex;
+    gap: 10px;
+    padding: 5px;
+    float: left;
+}
+
+
+.dropdownContainer li:hover {
+    background-color: #f1f1f1;
+}
+.dropdownContainer li.active {
+    color: #ffffff !important;
+    background-color: rgba(237, 28, 36, 1);
+}
+.dropdownContainer li {
+    font-weight: 600 !important;
+    font-family: 'proxima-nova';
+    font-size: 16px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #000 !important;
+    background-color: transparent;
+    cursor: pointer;
+    padding: 16px 20px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    margin: 0 !important;
+}
+
+
+/* Teritory Filters End*/
+
+/* MAP SVGs Start */
+
+.uagb-tabs__wrap .uagb-tabs__body-container.uagb-tabs-body__active {
+    display: block !important;
+}
+
+.svg-pan-zoom-control {
+    fill-opacity: 1 !important;
+}
+
+#svg-pan-zoom-controls path {
+    opacity: 1 !important;
+}
+
+.svg-pan-zoom-control {
+    cursor: pointer;
+    fill: black;
+    fill-opacity: 0.333;
+}
+
+.svgContainer {
+    width: 100%;
+    min-height: 570px;
+    margin-bottom: 50px;
+}
+
+
+.svgContainer svg {
+    display: inline;
+    width: inherit;
+    min-width: inherit;
+    max-width: inherit;
+    height: inherit;
+    min-height: inherit;
+    max-height: 570px;
+}
+
+.SVGmapContainer {
+    width: 75%;
+}
+
+.SVGmapContainer, .uagb-tabs__body-container {
+    float: left;
+    transition: all 0.6s ease;
+}
+
+#counties > g ,
+#canadaSVG g:not(.disabled):hover,
+#canadaSVG svg g.action path.active,
+#canadaSVG svg g.action use.active,
+#canadaSVG svg g.active *,
+#canadaSVG svg g.defaultColor:hover path {
+    cursor: pointer;
+    opacity: 1 !important;
+}
+
+
+#canadaSVG svg > g path, .svgContainer:not(#canadaSVG) svg path, .svgContainer:not(#canadaSVG) svg use {
+    opacity: 0.5;
+}
+/* MAP SVGs End */
+
+/* Rep Boxes Start */
+
+.repTerritory{
+    margin-top: 10px;
+}
+
+.repTerritory span,
+.repTerritory strong{
+    font-family: proxima-nova, sans-serif;
+    font-size: 18px !important;
+    line-height: 23px;
+    font-weight: 700;
+}
+
+
+.repTerritory span{
+    font-weight: 400;
+}
+
+.repTerritory .rep_territory,
+.repTerritory .rep_territory_ci_canada,
+.repTerritory .rep_territory_mechanical,
+.repTerritory .rep_territory_utility {
+    display: none;
+    font-weight: normal;
+}
+
+.uagb-tabs__body-wrap:has(.uagb-tab.active a[data-tab*="0"]) .repTerritory .rep_territory,
+.uagb-tabs__body-wrap:has(.uagb-tab.active a[data-tab*="2"]) .repTerritory .rep_territory,
+.wp-block-uagb-tabs:has(.uagb-tabs__active a[data-tab='0']):has(.dropdownContainer li[_target*="usa"].active) .repTerritory .rep_territory,
+.wp-block-uagb-tabs:has(.uagb-tabs__active a[data-tab='0']):has(.dropdownContainer li[_target*="international"].active) .repTerritory .rep_territory {
+    display: block;
+}
+
+.uagb-tabs__body-wrap:has(.uagb-tab.active a[data-tab*="0"]) .repTerritory .rep_territory_ci_canada,
+.wp-block-uagb-tabs:has(.uagb-tabs__active a[data-tab='0']):has(.dropdownContainer li[_target*="canada"].active) .repTerritory .rep_territory_ci_canada {
+    display: block;
+}
+
+.uagb-tabs__body-wrap:has(.uagb-tab.active a[data-tab*="1"]) .repTerritory .rep_territory_utility,
+.wp-block-uagb-tabs:has(.uagb-tabs__active a[data-tab='1']):has(.dropdownContainer li[_target*="usa"].active) .repTerritory .rep_territory_utility{
+    display: block;
+}
+
+.uagb-tabs__body-wrap:has(.uagb-tab.active a[data-tab*="2"]) .repTerritory .rep_territory_utility,
+.uagb-tabs__body-wrap:has(.uagb-tab.active a[data-tab*="2"]) .repTerritory .rep_territory_mechanical,
+.wp-block-uagb-tabs:has(.uagb-tabs__active a[data-tab='2']) .repTerritory .rep_territory_mechanical,
+.wp-block-uagb-tabs:has(.uagb-tabs__active a[data-tab='2']):has(.dropdownContainer li[_target*="international"].active) .repTerritory .rep_territory {
+    display: block;
+}
+
+.uagb-tabs__body-wrap{
+    width: 100% !important;
+}
+
+.uagb-tabs__wrap .uagb-tabs__body-container {
+    padding: 10px 15px;
+    display: none !important;
+}
+
+.listversion.uagb-tabs__wrap .uagb-tabs__body-container{
+    padding: 0px !important;
+}
+
+.wp-block-uagb-tabs-child.uagb-tabs__body-container.uagb-inner-tab-0.uagb-tabs-body__active{
+    margin-bottom: 0px !important;
+}
+
+.uagb-tabs__wrap .uagb-tabs__body-container.active ,
+.uagb-tabs__body-wrap.initialized .uagb-tabs-body__active {
+    display: block !important;
+}
+
+.uagb-tabs__body-container {
+    width: 25%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    /* padding-left: 50px !important; */
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    margin-top: 26px !important;
+    max-height: 500px;
+}
+
+.listversion .uagb-tabs__body-container{
+    width: 100% !important;
+    overflow: visible !important;
+    max-height: none !important;
+}
+
+.far {
+    min-height: auto !important;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    width: 99%;
+}
+
+.find-rep-isotope-container .far {
+    grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    display: grid;
+    align-content: baseline;
+}
+
+.listversion .find-rep-isotope-container .far{
+    display: flex !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.ivycat-post {
+    width: auto !important;
+    top: unset !important;
+    left: unset !important;
+}
+
+.listversion .ivycat-post {
+    width: 50% !important;
+}
+
+.repWebsite svg {
+    stroke: #000;
+}
+
+.repEmail svg:hover path,
+.repPhone svg:hover path {
+    fill: #ed1c24;
+}
+
+.repType {
+    margin-bottom: 25px;
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    font-family: 'purista-web';
+}
+
+.repWebsite svg:hover {
+    stroke: #ed1c24;
+}
+
+.infoContainer .copyItem{
+    cursor: pointer;
+    width: 100%;
+    overflow-wrap: break-word;
+    font-size: 14px;
+}
+
+.infoContainer .copyItem.copied svg path {
+    stroke: green !important;
+    stroke-width: 4px;
+}
+
+p.repPhone ,
+p.repEmail ,
+p.repWebsite {
+    display: flex !important;
+    gap: 0px 15px;
+    margin-bottom: 10px !important;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.infoContainer label {
+    font-size: 18px;
+    font-weight: bold;
+    width: 60px;
+    line-height: 20px;
+}
+
+.repName {
+    margin-bottom: 0;
+}
+
+.repType {
+    margin-bottom: 25px;
+    float: left;
+    width: 100%;
+    margin-top: 10px;
+    letter-spacing: 1px;
+    font-family: 'purista-web';
+}
+
+/* Rep Boxes End */
+
+/* Color Descriptions Start */
+#colorsDescription, #colorsDescriptionCanada, #colorsDescriptionMechanical {
+    display: list-item;
+    columns: 3;
+    list-style: none;
+    background-color: #ccc;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+#colorsDescription .section, #colorsDescriptionCanada .section, #colorsDescriptionMechanical .section {
+    display: flex;
+    gap: 4px;
+    min-width: 290px;
+    margin-bottom: 15px;
+}
+
+#colorsDescription .section div, #colorsDescriptionCanada .section div, #colorsDescriptionMechanical .section div {
+    height: 15px;
+    width: 15px;
+}
+
+.section a {
+    font-size: 20px !important;
+}
+/* Color Descriptions End */
+
+/* Dropdowns Start */
+
+.listversion .divContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.listversion .divContainer label{
+    font-weight: bold;
+}
+
+.listversion .divContainer .dropdown{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.listversion .divContainer .dropdown.disabled .dropdown-toggle{
+    background-color: #f1f1f1;
+    color: #999;
+    cursor: not-allowed;
+}
+
+.listversion .divContainer .dropdown.disabled .dropdown-menu{
+    display: none !important;
+}
+
+.listversion .divContainer .dropdown-toggle {
+    background-color: rgb(237, 28, 36);
+    color: white;
+    padding: 20px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    min-width: 250px;
+}
+
+.listversion .dropdown-menu {
+    display: none !important;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    list-style: none;
+    z-index: 1000;
+    padding: 5px 10px !important;
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    left: -5%;
+    width: 110% !important;
+    top: 100%;
+}
+
+.listversion .uagb-tabs__body-wrap{
+    margin-bottom: 40px !important;
+}
+
+.dropdown.show > .dropdown-menu, .dropdownContainer.show {
+    display: block !important;
+}
+
+.listversion  ul.uagb-tabs__panel{
+    margin: 0 auto !important;
+}
+
+.listversion .dropdown-menu li:not(.active):hover {
+    background-color: #f1f1f1;
+}
+
+.listversion .dropdown-menu li.active {
+    background-color: rgb(237, 28, 36);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+}
+
+#dropdownsContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    width: 100%;
+    justify-content: space-between;
+}
+
+#dropdownsContainer .divContainer{
+    margin: 0;
+}
+
+/* Dropdowns ENd */
+
+.ui-widget-content {
+    border: 1px solid #000000;
+    background: #ffffff;
+    color: #333333;
+    max-width: 300px;
+    width: fit-content;
+    padding: 8px;
+    position: absolute !important;
+}
+
+
+@media screen and (max-width: 992px) {
+
+    .mapversion #locationsDropdown{
+        margin-top: 0px;
+        margin: 0 auto;
+    }
+
+    .listversion .find-rep-isotope-container .far{
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-content: center;
+        margin-bottom: 50px;
+    }
+
+    .listversion .ivycat-post{
+        width: auto !important;
+    }
+
+    .listversion .divContainer{
+        align-items: center;
+    }
+
+    #dropdownsContainer{
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .svgContainer {
+        width: 100%;
+        min-height: 600px;
+    }
+
+    .wp-block-mkl-section-block {
+        padding: 0px 20px;
+    }
+
+    #colorsDescription .section, #colorsDescriptionCanada .section, #colorsDescriptionMechanical .section {
+        display: flex;
+        gap: 4px;
+        min-width: 50%;
+        margin-bottom: 5px;
+    }
+
+    #colorsDescription, #colorsDescriptionCanada, #colorsDescriptionMechanical{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    .uagb-tabs__body-container {
+        padding: 0px !important;
+        width: 90% !important;
+    }
+
+    .far{
+        margin: 0;
+    }
+
+    .SVGmapContainer {
+        width: 90%;
+    }
+
+    .uagb-tabs__body-wrap{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        max-width: 100% !important;
+    }
+
+    .repsub {
+        text-align: center;
+        display: block;
+    }
+
+    .mapversion .wp-block-uagb-tabs .uagb-tabs__panel {
+        width: 100% !important;
+    }
+
+    .wp-block-uagb-tabs .uagb-tabs__panel {
+        border: 1px solid;
+        border-radius: 8px;
+        padding: 5px 10px !important;
+        margin: 0 auto !important;
+        width: max-content;
+        width: 100%;
+        flex-direction: row !important;
+        justify-content: center !important;
+    }
+
+    .dropdownContainer {
+        margin: 15px auto;
+        max-width: 100% !important;
+        float: none;
+        flex-direction: row;
+        justify-content: center;
+        flex-wrap: wrap;
+        align-items: center;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    #locationsDropdown .dropdownContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100% !important;
+        max-width: 230px !important;
+    }
+
+    .uagb-tabs__wrap.uagb-tabs__stack1-mobile ul.uagb-tabs__panel{
+       max-width: 230px !important; 
+       width: 100% !important;
+    }
+
+    #colorsDescription .section, #colorsDescriptionCanada .section, #colorsDescriptionMechanical .section {
+        min-width: 100%;
+    }
+
+    .svgContainer {
+        min-height: 350px;
+    }
+}

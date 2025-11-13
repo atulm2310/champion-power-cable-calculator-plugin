@@ -1,0 +1,168 @@
+<tr class="seg_{seg_number}">
+  <td class="userFill">{seg_number}</td>
+  <td class="userFill">
+    <!-- Segment Note -->
+    <input
+      type="hidden"
+      class="noRequired userFill"
+      name="segment-build-list-segment"
+      value="{seg_number}"
+      id="segment-build-list-segment_{seg_number}"
+    />
+    <input
+      type="text"
+      class="form-control noRequired userFill"
+      name="segment-build-list-note_{seg_number}"
+      aria-label="segment-build-list-note"
+      id="segment-build-list-note_{seg_number}"
+    />
+  </td>
+  <td class="userFill">
+    <!-- Slope (Deg) -->
+    <input
+      type="number"
+      class="form-control noRequired userFill"
+      name="segment-build-list-slope"
+      aria-label="segment-build-list-slope"
+      id="segment-build-list-slope_{seg_number}"
+    />
+  </td>
+  <td class="userFill">
+    <!-- Slope Direction -->
+    <select
+      class="form-control noRequired userFill"
+      name="segment-build-list-slope-direction"
+      aria-label="segment-build-list-slope-direction"
+      id="segment-build-list-slope-direction"
+    >
+      <option value=""></option>
+      <option value="Horizontal">Horizontal</option>
+      <option value="Up">Up</option>
+      <option value="Down">Down</option>
+    </select>
+  </td>
+  <td class="userFill">
+    <!-- Length (ft) -->
+    <input
+      type="number"
+      class="form-control noRequired userFill"
+      name="segment-build-list-length"
+      aria-label="segment-build-list-length"
+      id="segment-build-list-length_{seg_number}"
+    />
+  </td>
+  <td>
+    <!--Type -->
+    <label
+      class="segment-build-list-type"
+      name="segment-build-list-type"
+      aria-label="segment-build-list-type"
+    ></label>
+    <select
+      class="form-control noRequired segment-build-list-type noDisplay"
+      name="segment-build-list-type"
+      aria-label="segment-build-list-type"
+      id="segment-build-list-type_{seg_number}"
+    >
+      <option value=""></option>
+      <option value="Horizontal">Horizontal</option>
+      <option value="Up">Up</option>
+      <option value="Down">Down</option>
+      <option value="Vert. Up">Vert. Up</option>
+      <option value="Vert. Dn">Vert. Dn</option>
+      <option value="Call CFI">Call CFI</option>
+    </select>
+  </td>
+  <td>
+    <!-- Direction -->
+    <input
+      type="text"
+      class="form-control noRequired"
+      name="segment-build-list-direction"
+      aria-label="segment-build-list-direction"
+      id="segment-build-list-direction_{seg_number}"
+    />
+  </td>
+  <td>
+    <!-- Elbow Angle (Deg) -->
+    <select
+      class="form-control noRequired userFill open_option"
+      name="segment-build-list-elbow-angle"
+      aria-label="segment-build-list-elbow-angle"
+      id="segment-build-list-elbow-angle_{seg_number}"
+    >
+      <option value=""></option>
+      <option value="0">0</option>
+      <option value="90">90</option>
+      <option value="60">60</option>
+      <option value="45">45</option>
+      <option value="30">30</option>
+      <option value="22.5">22.5</option>
+      <option value="11.25">11.25</option>
+    </select>
+  </td>
+  <td>
+    <!-- Elbow Radius (in) -->
+    <select
+      class="form-control noRequired userFill open_option"
+      name="segment-build-list-elbow-radius"
+      aria-label="segment-build-list-elbow-radius"
+      id="segment-build-list-elbow-radius_{seg_number}"
+    >
+      <option value=""></option>
+      <option value="0">0</option>
+      <option value="12">12</option>
+      <option value="24">24</option>
+      <option value="36">36</option>
+      <option value="48">48</option>
+      <option value="60">60</option>
+      <option value="72">72</option>
+      <option value="84">84</option>
+      <option value="96">96</option>
+      <option value="108">108</option>
+    </select>
+  </td>
+  <td>
+    <!-- Tension (lbs) -->
+    <label
+      class="segment-build-list-tension"
+      name="segment-build-list-tension"
+      aria-label="segment-build-list-tension"
+    ></label>
+    <input
+      type="number"
+      class="form-control noRequired segment-build-list-tension noDisplay"
+      name="segment-build-list-tension"
+      aria-label="segment-build-list-tension"
+      id="segment-build-list-tension_{seg_number}"
+    />
+  </td>
+  <td>
+    <!-- SWBP (lbs/ft) -->
+    <label
+      class="segment-build-list-SWBP"
+      name="segment-build-list-SWBP"
+      aria-label="segment-build-list-SWBP"
+    ></label>
+    <input
+      type="number"
+      class="form-control noRequired segment-build-list-SWBP noDisplay"
+      name="segment-build-list-SWBP"
+      aria-label="segment-build-list-SWBP"
+      value="0"
+      id="segment-build-list-SWBP_{seg_number}"
+    />
+  </td>
+  <td>
+    <!-- Begin New Pull in this Segment -->
+    <select
+      class="form-control userFill"
+      name="segment-build-list-begin-segment"
+      aria-label="segment-build-list-begin-segment"
+      id="segment-build-list-begin-segment_{seg_number}"
+    >
+      <option value="No">No</option>
+      <option value="Yes">Yes</option>
+    </select>
+  </td>
+</tr>
