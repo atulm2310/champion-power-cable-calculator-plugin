@@ -548,46 +548,46 @@ class champion_power_cable
             }
 
             $finalIPSMIN = 0;
-            $IPSMIndex = 0;
+            $IPSMIndex = "0";
+            $type = 0;
 
-
-            $_POST["trade_size"] = (int) $_POST["trade_size"];
-            $key = array_search($_POST["trade_size"], array_column($this->ORIGINALIPSMIN, 0));
-            $angle = $this->ORIGINALIPSMIN[$key][1];
-            $conduitCode = $_POST["pipetype"] . $_POST["raceway"] . "TRA" . $angle;
-
+            // Fixed: Match Excel MATCH/INDEX logic exactly
+            // Find the SMALLEST trade size where cable area FITS (cable_area <= allowed_area)
             foreach ($IPSMIN as $k => $v) {
+                // Skip if no ID data
+                if (!isset($v["ID"]) || empty($v["ID"])) {
+                    continue;
+                }
 
-                //get next key
-                $nextKey = $k + 1;
-
-                if ($_POST["cables"] == 1 && ($v["1"] >= $finalIPSMIN && $v[">2"] <= (float) $_POST["total_cable"])) {
+                // For 1 cable: Check if total cable area fits in 53% fill
+                if ($_POST["cables"] == 1 && (float)$_POST["total_cable"] <= $v["1"]) {
+                    $IPSMIndex = $v["original"]; // Use fraction format (3/4, 1-1/2, etc.)
                     $finalIPSMIN = $v["1"];
-                    $IPSMIndex = $IPSMIN[$nextKey]["code"];
                     $type = 1;
+                    break; // Return first match (smallest size that fits)
                 }
-                if ($_POST["cables"] == 2 && ($v["2"] >= $finalIPSMIN && $v[">2"] <= (float) $_POST["total_cable"])) {
+
+                // For 2 cables: Check if total cable area fits in 31% fill
+                if ($_POST["cables"] == 2 && (float)$_POST["total_cable"] <= $v["2"]) {
+                    $IPSMIndex = $v["original"];
                     $finalIPSMIN = $v["2"];
-                    $IPSMIndex = $IPSMIN[$nextKey]["code"];
                     $type = 2;
+                    break;
                 }
-                if ($_POST["cables"] >= 2 && ($v[">2"] >= $finalIPSMIN && $v[">2"] <= (float) $_POST["total_cable"])) {
+
+                // For 3+ cables: Check if total cable area fits in 40% fill
+                if ($_POST["cables"] >= 3 && (float)$_POST["total_cable"] <= $v[">2"]) {
+                    $IPSMIndex = $v["original"];
                     $finalIPSMIN = $v[">2"];
-                    $IPSMIndex = $IPSMIN[$nextKey]["code"];
                     $type = 3;
+                    break;
                 }
-
-
-                /* if ($v["description"] == $conduitCode) {
-                $IPSMIndex = $v["code"];
-                $finalIPSMIN = $v[">2"];
-                $ID = $v["ID"];
-                } */
             }
 
-
-            /* break;
-            } */
+            // If no match found (cable area too large), return error message
+            if ($IPSMIndex == "0") {
+                $IPSMIndex = "Select Larger Raceway or Reduce Cables";
+            }
 
             echo json_encode(["status" => true, "index" => $IPSMIndex, "value" => $finalIPSMIN, "type" => $type]);
         } catch (\Throwable $th) {
