@@ -1,0 +1,68 @@
+{
+  "project_inputs": {
+    "raceway": "Champion Fiberglass SW/MW/HW",
+    "trade_size": "3/4",
+    "conduit_type": "IPS",
+    "incoming_tension": 50
+  },
+  "cable_information": {
+    "phase": {
+      "num_cables": 3,
+      "cu_al": "CU",
+      "size": "4/0",
+      "cc_count": "1/C",
+      "voltage": 480,
+      "v_kv": "V",
+      "armor": "Aluminum",
+      "jacket": "PVC",
+      "od": 1.0,
+      "lbs_ft": 0.9
+    },
+    "ground": {
+      "num_cables": 1,
+      "cu_al": "CU",
+      "size": "2",
+      "od": 0.5,
+      "lbs_ft": 0.3
+    }
+  },
+  "segments": [
+    {
+      "segment": 1,
+      "slope": 0,
+      "slope_direction": "Horizontal",
+      "length": 100,
+      "type": "Sweep",
+      "direction": "Right",
+      "elbow_angle": 90,
+      "elbow_radius": 36
+    },
+    {
+      "segment": 2,
+      "slope": 15,
+      "slope_direction": "Up",
+      "length": 50,
+      "type": "Sweep",
+      "direction": "Up",
+      "elbow_angle": 90,
+      "elbow_radius": 36
+    },
+    {
+      "segment": 3,
+      "slope": 0,
+      "slope_direction": "Horizontal",
+      "length": 75,
+      "type": "Sweep",
+      "direction": "Right",
+      "elbow_angle": 90,
+      "elbow_radius": 36
+    }
+  ],
+  "expected_results": {
+    "total_cables": 4,
+    "pull_configuration": "Complex",
+    "total_weight_lbs_ft": 3.0,
+    "weight_correction": 1.4,
+    "nec_minimum_trade_size": "Should calculate based on fill"
+  }
+}
