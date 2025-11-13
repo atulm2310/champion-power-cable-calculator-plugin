@@ -551,42 +551,65 @@ class champion_power_cable
             $IPSMIndex = "0";
             $type = 0;
 
-            // Fixed: Match Excel MATCH/INDEX logic exactly
-            // Find the SMALLEST trade size where cable area FITS (cable_area <= allowed_area)
+            // Fixed: Match Excel MATCH/INDEX +1 logic exactly
+            // Excel logic: MATCH(cable_area, conduit_areas, 1) finds LARGEST conduit_area <= cable_area
+            //              INDEX(trade_sizes, MATCH_position + 1) returns NEXT trade size
+            // This means: Find the conduit that's TOO SMALL, then return the next size up
+
+            $matchedPosition = -1;
+            $cableArea = (float)$_POST["total_cable"];
+            $cableCount = (int)$_POST["cables"];
+
+            // Determine which fill column to use based on cable count
+            $fillColumn = ">2"; // Default to 40% fill for 3+ cables
+            if ($cableCount == 1) {
+                $fillColumn = "1"; // 53% fill
+                $type = 1;
+            } elseif ($cableCount == 2) {
+                $fillColumn = "2"; // 31% fill
+                $type = 2;
+            } else {
+                $type = 3;
+            }
+
+            // MATCH logic: Find LARGEST conduit area that is <= cable area
             foreach ($IPSMIN as $k => $v) {
                 // Skip if no ID data
                 if (!isset($v["ID"]) || empty($v["ID"])) {
                     continue;
                 }
 
-                // For 1 cable: Check if total cable area fits in 53% fill
-                if ($_POST["cables"] == 1 && (float)$_POST["total_cable"] <= $v["1"]) {
-                    $IPSMIndex = $v["original"]; // Use fraction format (3/4, 1-1/2, etc.)
-                    $finalIPSMIN = $v["1"];
-                    $type = 1;
-                    break; // Return first match (smallest size that fits)
-                }
+                $conduitArea = (float)$v[$fillColumn];
 
-                // For 2 cables: Check if total cable area fits in 31% fill
-                if ($_POST["cables"] == 2 && (float)$_POST["total_cable"] <= $v["2"]) {
-                    $IPSMIndex = $v["original"];
-                    $finalIPSMIN = $v["2"];
-                    $type = 2;
-                    break;
-                }
-
-                // For 3+ cables: Check if total cable area fits in 40% fill
-                if ($_POST["cables"] >= 3 && (float)$_POST["total_cable"] <= $v[">2"]) {
-                    $IPSMIndex = $v["original"];
-                    $finalIPSMIN = $v[">2"];
-                    $type = 3;
+                // Keep tracking as long as conduit area <= cable area
+                if ($conduitArea <= $cableArea) {
+                    $matchedPosition = $k;
+                    // Don't break - keep going to find the LARGEST that fits
+                } else {
+                    // Once we hit a conduit area larger than cable area, stop
                     break;
                 }
             }
 
-            // If no match found (cable area too large), return error message
-            if ($IPSMIndex == "0") {
-                $IPSMIndex = "Select Larger Raceway or Reduce Cables";
+            // INDEX +1 logic: Return NEXT trade size (position + 1)
+            if ($matchedPosition >= 0) {
+                $nextPosition = $matchedPosition + 1;
+
+                // Check if next position exists
+                if (isset($IPSMIN[$nextPosition]) && isset($IPSMIN[$nextPosition]["original"])) {
+                    $IPSMIndex = $IPSMIN[$nextPosition]["original"];
+                    $finalIPSMIN = (float)$IPSMIN[$nextPosition][$fillColumn];
+                } else {
+                    // No next size available - cable area exceeds largest conduit
+                    $IPSMIndex = "Select Larger Raceway or Reduce Cables";
+                }
+            } else {
+                // No match found at all (cable area is smaller than smallest conduit)
+                // This shouldn't happen, but return the first size just in case
+                if (isset($IPSMIN[0]) && isset($IPSMIN[0]["original"])) {
+                    $IPSMIndex = $IPSMIN[0]["original"];
+                    $finalIPSMIN = (float)$IPSMIN[0][$fillColumn];
+                }
             }
 
             echo json_encode(["status" => true, "index" => $IPSMIndex, "value" => $finalIPSMIN, "type" => $type]);
